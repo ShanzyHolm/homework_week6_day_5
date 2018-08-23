@@ -8,13 +8,20 @@ form.addEventListener('submit', handleFormSubmit);
 const handleFormSubmit = function(event){
   event.preventDefault();
 
-  const resultForm = document.querySelector('#reading-list')
-  resultForm.textContent = `${event.target.title.value} ${event.target.author.value} ${event.target.category.value}`
+  const newItem = document.createElement("li");
 
-  document.querySelector("#new-item-form").reset();
+  newItem.textContent = `${event.target.title.value} ${event.target.author.value} ${event.target.category.value}`;
+
+  const resultForm = document.querySelector('#reading-list');
+
+  newItem.classPrimary.add("title");
+  resultForm.appendChild(newItem);
+
+  const resultForm = document.querySelector("#new-item-form");
+  resultForm.reset();
+  console.log(event);
 }
 
-// const newItem = document.createElement("li");
 // newListItem.textContent = `${event.target.title.value}`;
 // newListItem.classPrimary.add("title");
 // const list = document.querySelector('ul');
